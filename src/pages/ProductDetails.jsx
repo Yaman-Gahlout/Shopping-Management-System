@@ -20,9 +20,9 @@ export default function ProductDetails() {
   }
   return (
     <div className="flex justify-center items-center">
-      <div className="h-[500px] w-[1000px] flex gap-[50px] mt-[100px] justify-center p-[30px] shadow-2xl rounded-3xl">
+      <div className="h-[500px] w-[1000px] flex gap-[50px] mt-[100px] justify-center ">
         <div className="w-[40%]">
-          <img src={post.image} alt="" />
+          <img src={post.image} alt="" className="h-[400px] w-[400px]" />
         </div>
         <div className="w-[60%]">
           <div className="flex flex-col gap-[10px]">
