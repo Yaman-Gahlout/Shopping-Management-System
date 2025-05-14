@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 
 export default function OrderSummary({ orderDetails }) {
   const { cart } = useSelector((state) => state);
-  const totalAmount = cart.reduce((acc, curr) => acc + curr.price, 0);
+  const totalAmount = Math.floor(
+    cart.reduce((acc, curr) => acc + curr.price, 1) * 85.31
+  );
 
   const orderID = Math.floor(Math.random() * 10000000000) + "##abc";
   return (
@@ -48,7 +50,7 @@ export default function OrderSummary({ orderDetails }) {
         </div>
         <div className="flex justify-between w-[80%]">
           <p className="text-xl font-bold">Total Amount:</p>
-          <p className="text-lg text-gray-600">${totalAmount}</p>
+          <p className="text-lg text-gray-600">Rs.{totalAmount}</p>
         </div>
       </div>
       <NavLink to={"/"}>
