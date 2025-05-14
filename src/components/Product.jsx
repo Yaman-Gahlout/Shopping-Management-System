@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../redux/Slices/CartSlice";
+import { NavLink } from "react-router-dom";
 
 export default function Product({ post }) {
   const { cart } = useSelector((state) => state);
@@ -27,9 +28,11 @@ export default function Product({ post }) {
           {post.description.slice(0, 50) + "...."}
         </p>
       </div>
-      <div className="h-[180px]">
-        <img src={post.image} alt="/" className="h-full w-full" />
-      </div>
+      <NavLink to={"productDetails"} state={post}>
+        <div className="h-[180px]">
+          <img src={post.image} alt="/" className="h-full w-full" />
+        </div>
+      </NavLink>
       <div className="flex justify-between gap-12">
         <div>
           <p className="text-green-600 font-semibold items-center w-full ">
