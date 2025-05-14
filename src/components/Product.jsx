@@ -16,6 +16,7 @@ export default function Product({ post }) {
     toast.error("Item removed from cart");
   }
 
+  const price = Math.floor(post.price * 85.31);
   return (
     <div className="flex flex-col items-center justify-between hover:scale-110 transition duration-300 ease-in hover:shadow-[0_20px_50px_rgba(0,_0,_0,_0.7)] gap-3 p-4 mt-10 ml-5 rounded-xl border-2 border-gray-300 hover:border-none">
       <div>
@@ -36,7 +37,7 @@ export default function Product({ post }) {
       <div className="flex justify-between gap-12">
         <div>
           <p className="text-green-600 font-semibold items-center w-full ">
-            $ {post.price}
+            Rs. {price}
           </p>
         </div>
         {cart.some((p) => p.id === post.id) ? (
