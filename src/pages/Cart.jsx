@@ -8,18 +8,20 @@ function Cart() {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    setTotalAmount(cart.reduce((acc, curr) => acc + curr.price, 0));
+    let price = cart.reduce((acc, curr) => acc + curr.price, 0);
+    price = Math.floor(price * 85.31);
+    setTotalAmount(price);
   }, [cart]);
   return (
-    <div>
+    <div className="mt-[100px]">
       {cart.length > 0 ? (
-        <div className="max-w-6xl flex mx-auto mt-[30px] gap-[30px] mb-[100px]">
+        <div className="max-w-6xl flex max-md:flex-col mx-auto mt-[30px] gap-[30px] mb-[100px]">
           <div>
-            {cart.map((item, index) => {
+            {cart.map((item) => {
               return <CartItem key={item.id} item={item}></CartItem>;
             })}
           </div>
-          <div className="flex flex-col justify-between w-[800px] mt-[20px]">
+          <div className="flex flex-col  justify-between w-[50%] mt-[20px]">
             <div className="flex flex-col ">
               <div className="text-xl uppercase font-semibold text-green-700">
                 Your Cart
@@ -34,7 +36,7 @@ function Cart() {
             <div>
               <p className="mt-[25px] text-lg font-semibold text-gray-600">
                 Total Amount :{" "}
-                <span className="text-black font-bold">$ {totalAmount}</span>
+                <span className="text-black font-bold">Rs. {totalAmount}</span>
               </p>
               <NavLink to={"/order"}>
                 <button className="px-[100px] mt-[20px] py-[10px] bg-green-600 border-2 border-green-600 text-white rounded-xl text-lg hover:bg-white hover:text-green-600 hover:border-2 hover:border-green-600 transition duration-300 ease-in">

@@ -8,7 +8,7 @@ import ProductDetails from "./pages/ProductDetails";
 export default function App() {
   return (
     <div>
-      <div className="bg-slate-900 ">
+      <div className="bg-slate-900 fixed w-[100%] z-30 top-0">
         <Navbar />
       </div>
       <Routes>

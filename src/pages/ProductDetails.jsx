@@ -20,12 +20,12 @@ export default function ProductDetails() {
   }
   const price = Math.floor(post.price * 85.31);
   return (
-    <div className="flex justify-center items-center">
-      <div className="h-[500px] w-[1000px] flex gap-[50px] mt-[100px] justify-center ">
-        <div className="w-[40%]">
+    <div className="flex justify-center items-center mt-[30px]">
+      <div className="w-[80%] flex max-md:flex-col max-md:items-center gap-[50px] mt-[100px] justify-center ">
+        <div className="w-[30%]">
           <img src={post.image} alt="" className="h-[400px] w-[400px]" />
         </div>
-        <div className="w-[60%]">
+        <div className="w-[80%]">
           <div className="flex flex-col gap-[10px]">
             <h1 className="text-3xl font-bold">{post.title}</h1>
             <p className="text-gray-500 text-justify">{post.description}</p>
@@ -33,7 +33,7 @@ export default function ProductDetails() {
               Rs.{price}
             </p>
           </div>
-          <div className="mt-[100px] flex gap-[50px] items-center ">
+          <div className="mt-[100px] flex max-md:flex-col max-md:mb-[30px] gap-[50px] items-center ">
             <NavLink to={"/order"}>
               <button className="px-[80px] py-[10px] bg-green-600 border-2 border-green-600 text-white rounded-xl text-lg hover:bg-white hover:text-green-600 hover:border-2 hover:border-green-600 transition duration-300 ease-in">
                 Buy Now

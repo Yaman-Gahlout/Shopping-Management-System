@@ -8,18 +8,20 @@ export default function OrderSummary({ orderDetails }) {
   );
 
   const orderID = Math.floor(Math.random() * 10000000000) + "##abc";
+  const today = new Date();
+  const dateOfDelivery = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
   return (
     <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold text-green-700 mt-[10px]">
         Order Summary
       </h1>
-      <div className="h-[350px] w-[600px] p-[20px_15px] hover:border-[3px] hover:border-green-700 transition duration-200 ease-in shadow-2xl rounded-3xl mt-[30px] flex flex-col items-center justify-center">
+      <div className="h-[350px] w-[600px] max-sm:w-[400px] max-sm:h-[400px] p-[20px_15px] shadow-2xl rounded-3xl mt-[30px] flex flex-col items-center justify-center">
         <div className="flex justify-between w-[80%]">
           <p className="text-xl font-bold">Order ID :</p>
           <p className="text-lg text-gray-600">{orderID}</p>
         </div>
         <div className="flex justify-between w-[80%]">
-          <p className="text-xl font-bold">Name:</p>
+          <p className="text-xl font-bold">Username:</p>
           <p className="text-lg text-gray-600">
             {orderDetails.firstName + " " + orderDetails.LastName}
           </p>
@@ -51,6 +53,12 @@ export default function OrderSummary({ orderDetails }) {
         <div className="flex justify-between w-[80%]">
           <p className="text-xl font-bold">Total Amount:</p>
           <p className="text-lg text-gray-600">Rs.{totalAmount}</p>
+        </div>
+        <div className="flex justify-between w-[80%]">
+          <p className="text-xl font-bold">Date of Delivery:</p>
+          <p className="text-lg text-gray-600">
+            {dateOfDelivery.toDateString()}
+          </p>
         </div>
       </div>
       <NavLink to={"/"}>

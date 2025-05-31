@@ -9,6 +9,9 @@ function CartItem({ item }) {
     dispatch(remove(item.id));
     toast.error("Item removed from cart");
   }
+
+  const price = Math.floor(item.price * 85.31);
+
   return (
     <div className="flex gap-[50px] pb-[30px] border-b-2 border-gray-800 mt-[35px]">
       <div className="flex justify-center items-center">
@@ -20,7 +23,7 @@ function CartItem({ item }) {
           {item.description.slice(0, 110) + "..."}
         </div>
         <div className="flex items-center justify-between mt-[30px]">
-          <p className="text-green-600 font-bold">$ {item.price}</p>
+          <p className="text-green-600 font-bold">Rs. {price}</p>
           <div className="mr-6">
             <MdDeleteForever
               onClick={removeFromCart}
