@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function OrderSummary({ orderDetails }) {
   const { cart } = useSelector((state) => state);
-  const totalAmount = Math.floor(
-    cart.reduce((acc, curr) => acc + curr.price, 1) * 85.31
-  );
+  const totalAmount = cart.reduce((acc, curr) => acc + curr.price, 0);
 
   const orderID = Math.floor(Math.random() * 10000000000) + "##abc";
   const today = new Date();

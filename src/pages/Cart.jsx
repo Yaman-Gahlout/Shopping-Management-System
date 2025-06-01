@@ -8,9 +8,7 @@ function Cart() {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    let price = cart.reduce((acc, curr) => acc + curr.price, 0);
-    price = Math.floor(price * 85.31);
-    setTotalAmount(price);
+    setTotalAmount(cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [cart]);
   return (
     <div className="mt-[100px]">
@@ -21,7 +19,7 @@ function Cart() {
               return <CartItem key={item.id} item={item}></CartItem>;
             })}
           </div>
-          <div className="flex flex-col  justify-between w-[50%] mt-[20px]">
+          <div className="flex flex-col max-md:px-[50px] justify-between w-[50%] mt-[20px]">
             <div className="flex flex-col ">
               <div className="text-xl uppercase font-semibold text-green-700">
                 Your Cart

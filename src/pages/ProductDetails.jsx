@@ -18,7 +18,7 @@ export default function ProductDetails() {
     dispatch(remove(post.id));
     toast.error("Item removed from cart");
   }
-  const price = Math.floor(post.price * 85.31);
+
   return (
     <div className="flex justify-center items-center mt-[30px]">
       <div className="w-[80%] flex max-md:flex-col max-md:items-center gap-[50px] mt-[100px] justify-center ">
@@ -30,7 +30,11 @@ export default function ProductDetails() {
             <h1 className="text-3xl font-bold">{post.title}</h1>
             <p className="text-gray-500 text-justify">{post.description}</p>
             <p className="text-green-700 text-2xl font-bold mt-[10px]">
-              Rs.{price}
+              Rs.{post.price}
+            </p>
+            <p className="text-xl text-black font-bold flex items-center">
+              Rating :
+              <span className="text-gray-700">{post.rating.rate} ⭐</span>
             </p>
           </div>
           <div className="mt-[100px] flex max-md:flex-col max-md:mb-[30px] gap-[50px] items-center ">
